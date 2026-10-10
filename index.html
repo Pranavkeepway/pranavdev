@@ -1,1 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pranav Kulkarni — Software Developer, Banking Technology, AI &amp; DevOps</title>
+<meta name="description" content="Pranav Kulkarni is a software developer from Pune working across banking technology, AI tools and DevOps, and co-founder of GoalGappa Podcast.">
+<meta property="og:title" content="Pranav Kulkarni — Software Developer">
+<meta property="og:description" content="React, Next.js, Flutter, Spring Boot, banking technology, AI and DevOps. Co-founder of GoalGappa Podcast.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1122; --bg2:#0f1830; --card:#111c38; --line:#1f2e55;
+  --text:#e8edfb; --muted:#9aa8cc; --accent:#6c8cff; --accent2:#ffb524; --ok:#3ddc97;
+  --glow:rgba(108,140,255,.16);
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  box-sizing:border-box;
+}
+:root[data-theme="light"]{
+  --bg:#f5f7fd; --bg2:#eaeffb; --card:#ffffff; --line:#d6ddf0;
+  --text:#101a36; --muted:#4f5d82; --accent:#3d5fe0; --accent2:#b86e00; --ok:#0d8a5a;
+  --glow:rgba(61,95,224,.12);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:5.5rem 0}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 2.5rem}
+.mono{font-family:var(--mono)}
 
+/* nav */
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.15rem var(--display);text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 25%,transparent)}
+.links{display:flex;gap:1.5rem;align-items:center}
+.links a{text-decoration:none;font-size:.92rem;color:var(--muted);transition:color .2s}
+.links a:hover{color:var(--text)}
+.tbtn{background:none;border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:1rem}
+.tbtn:hover{border-color:var(--accent)}
+@media(max-width:760px){.links a:not(.keep){display:none}}
+
+/* hero */
+.hero{padding:4.5rem 0 4rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 300px at var(--mx,70%) var(--my,10%),var(--glow),transparent 70%),
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px;
+  opacity:.55;mask-image:linear-gradient(#000 40%,transparent);-webkit-mask-image:linear-gradient(#000 40%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center}
+.status{display:inline-flex;gap:.6rem;align-items:center;font:500 .82rem var(--mono);color:var(--muted);border:1px solid var(--line);padding:.35rem .8rem;border-radius:99px;margin-bottom:1.4rem;background:var(--card)}
+.status b{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+h1{font-size:clamp(2.6rem,6.4vw,4.8rem);font-weight:800}
+h1 span{display:block;color:var(--muted);font-weight:500;font-size:.5em;margin-top:.9rem;letter-spacing:-.01em}
+.hero p{color:var(--muted);max-width:52ch;margin:1.4rem 0 2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line);transition:transform .15s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="light"] .btn.p{color:#fff}
+
+/* terminal */
+.term{background:#070d1c;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);color:#d8e1ff}
+:root[data-theme="light"] .term{box-shadow:0 30px 70px -35px rgba(30,50,120,.45)}
+.tbar{display:flex;gap:.45rem;align-items:center;padding:.7rem 1rem;border-bottom:1px solid #1b2850;background:#0b1430}
+.tbar i{width:11px;height:11px;border-radius:50%;background:#2a3a6b}
+.tbar span{margin-left:.6rem;font:.75rem var(--mono);color:#7d8db8}
+.tbody{padding:1.2rem 1.3rem;font:.85rem/1.75 var(--mono);min-height:310px;white-space:pre-wrap}
+.k{color:#7fa2ff}.s{color:#7de3b0}.n{color:#ffc65c}.c{color:#6b7aa6}
+.caret{display:inline-block;width:8px;height:1em;background:#7fa2ff;vertical-align:-2px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+
+/* pipeline */
+.pipe{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.5rem;font:500 .8rem var(--mono)}
+.pipe div{display:flex;align-items:center;gap:.5rem;padding:.45rem .85rem;border:1px solid var(--line);background:var(--card);border-radius:10px}
+.pipe div::before{content:"✓";color:var(--ok)}
+.pipe div.run::before{content:"●";color:var(--accent2);animation:b 1.2s steps(1) infinite}
+
+/* impact */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stat{background:var(--card);padding:1.6rem 1.4rem}
+.stat b{display:block;font:800 2rem var(--display);letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:.88rem}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* timeline */
+.log{position:relative;margin:0;padding:0;list-style:none}
+.log::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.log li{position:relative;padding:0 0 2.4rem 2.4rem}
+.log li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.log li.now::before{border-color:var(--ok)}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:baseline;margin-bottom:.35rem}
+.meta h3{font-size:1.3rem;font-weight:700}
+.meta .co{color:var(--accent)}
+.meta time{font:.8rem var(--mono);color:var(--muted)}
+.log ul{margin:.6rem 0 0;padding-left:1.1rem;color:var(--muted)}
+.log li li{padding:0;margin:.15rem 0}
+.log li li::before{display:none}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.tags span{font:.75rem var(--mono);padding:.2rem .6rem;border-radius:6px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.5rem;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card h3{font-size:1.2rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.93rem;margin:0 0 1rem;flex:1}
+.card.wide{grid-column:span 2}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.grid.two{grid-template-columns:1fr}}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.card.wide{grid-column:span 2}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card.wide{grid-column:auto}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.sk{border-top:2px solid var(--accent);padding-top:1rem}
+.sk:nth-child(3n){border-color:var(--accent2)}
+.sk h3{font-size:1.05rem;margin-bottom:.7rem}
+.sk .tags{margin:0}
+@media(max-width:700px){.skills{grid-template-columns:1fr}}
+
+/* podcast */
+.pod{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:start;background:linear-gradient(135deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:2.4rem}
+.pod h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.pod p{color:var(--muted)}
+.rec{border-left:3px solid var(--accent2);padding:.2rem 0 .2rem 1rem;margin:1.2rem 0;color:var(--text)}
+.pod ul{margin:0;padding:0;list-style:none;display:grid;gap:.7rem}
+.pod li{padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--bg);font-size:.93rem;color:var(--muted)}
+.pod li b{color:var(--text);display:block}
+@media(max-width:860px){.pod{grid-template-columns:1fr;padding:1.6rem}}
+
+/* contact */
+.contact{text-align:left}
+.contact h2{font-size:clamp(2rem,5vw,3.4rem)}
+.cl{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top"><i></i>pranav.dev</a>
+    <div class="links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#podcast">GoalGappa</a>
+      <a href="#contribute">Contribute</a>
+      <a class="keep" href="#contact">Contact</a>
+      <button class="tbtn" id="theme" aria-label="Toggle light and dark theme">◐</button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="status mono"><b></b>Open to opportunities · Pune, India</div>
+      <h1>Pranav Kulkarni<span>Software developer building across banking technology, AI and DevOps.</span></h1>
+      <p>3+ years across React, Next.js, Flutter, Python and REST APIs, plus hands-on testing of live digital banking channels. I also co-host GoalGappa, a Marathi podcast with India Book of Records recognition.</p>
+      <div class="cta">
+        <a class="btn p" href="#contact">Get in touch</a>
+        <a class="btn" href="#projects">See projects</a>
+      </div>
+    </div>
+    <div class="term" aria-label="Profile summary in a terminal style">
+      <div class="tbar"><i></i><i></i><i></i><span>~/pranav/profile.js</span></div>
+      <div class="tbody" id="tb"></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="pipe" aria-label="Current learning path">
+      <div>Frontend</div><div>Backend APIs</div><div>Banking QA</div><div>AI tools</div><div class="run">DevOps &amp; CI/CD (learning)</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:1rem">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>3+</b><span>years in software, testing and banking tech</span></div>
+      <div class="stat"><b>~600</b><span>cheques verified daily in CTS clearing</span></div>
+      <div class="stat"><b>7,700+</b><span>YouTube subscribers on GoalGappa</span></div>
+      <div class="stat"><b>438,227+</b><span>total views on the channel</span></div>
+      <div class="stat"><b>2</b><span>record bodies: Asia and India Book of Records</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="lead">From building web and mobile apps to testing the digital channels that move real money.</p>
+    <ol class="log">
+      <li>
+        <div class="meta"><h3>Banking Technology &amp; Operations</h3><span class="co">Jalgaon Janata Sahakari Bank Ltd.</span><time>Aug 2025 – Aug 2026</time></div>
+        <ul>
+          <li>Tested Net Banking, Mobile Banking, IMPS, UPI and other digital channels, with functional checks and transaction validation.</li>
+          <li>Ran the CTS (Cheque Truncation System) clearing process, verifying about 600 cheques a day for debit and passing.</li>
+          <li>Worked with the development team on an internal banking dashboard built in React, helping develop and test it.</li>
+          <li>Investigated application issues, tracked defects and validated fixes with internal teams.</li>
+          <li>Handled assigned work on the DAKSH RBI portal and prepared the bank's Annual Report presentation and the data for its printed copy.</li>
+        </ul>
+        <div class="tags"><span>Functional testing</span><span>React.js</span><span>Defect tracking</span><span>IMPS / UPI</span><span>CTS</span></div>
+      </li>
+      <li>
+        <div class="meta"><h3>IT Executive &amp; Developer</h3><span class="co">Kelfos Instruments</span><time>Dec 2024 – May 2025</time></div>
+        <ul>
+          <li>Built application features with React.js and Java Spring Boot.</li>
+          <li>Worked on a data logger application in Python.</li>
+          <li>Supported testing, troubleshooting and functional improvements.</li>
+        </ul>
+        <div class="tags"><span>React.js</span><span>Spring Boot</span><span>Python</span></div>
+      </li>
+      <li>
+        <div class="meta"><h3>Software Developer</h3><span class="co">Smart Computer India Pvt. Ltd.</span><time>Nov 2023 – Jul 2024</time></div>
+        <ul>
+          <li>Developed interfaces with React.js and Material UI, and REST APIs with Spring Boot.</li>
+          <li>Contributed to CRM and website development.</li>
+          <li>Worked on an invoice management solution using ASP.NET and MS Access.</li>
+        </ul>
+        <div class="tags"><span>React.js</span><span>Material UI</span><span>REST APIs</span><span>ASP.NET</span></div>
+      </li>
+      <li>
+        <div class="meta"><h3>Software Development Trainee</h3><span class="co">Patheya Technologies</span><time>Nov 2022 – Oct 2023</time></div>
+        <ul>
+          <li>Built web applications with Next.js and Firebase/Firestore, including the Sparc Foundation website.</li>
+          <li>Developed the Nond Parnali mobile app in Flutter.</li>
+        </ul>
+        <div class="tags"><span>Next.js</span><span>Flutter</span><span>Firestore</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects" style="background:var(--bg2)">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">Things I have built or contributed to.</p>
+    <div class="grid">
+      <article class="card wide">
+        <h3>Internal banking dashboard</h3>
+        <p>Worked with the development team on an internal dashboard at the bank, built in React. Contributed to development, validated functionality and worked with technical teams to close issues.</p>
+        <div class="tags"><span>React.js</span><span>Dashboard</span><span>Testing</span><span>Banking</span></div>
+      </article>
+      <article class="card">
+        <h3>Nond Parnali</h3>
+        <p>A mobile application built with Flutter.</p>
+        <div class="tags"><span>Flutter</span><span>Dart</span></div>
+      </article>
+      <article class="card wide">
+        <h3>Smart Job Card</h3>
+        <p>A solution for companies to track projects and monitor work completion, with a simple experience for both employees and managers to keep workflows efficient. Apr 2024 – Jun 2024.</p>
+        <div class="tags"><span>ASP.NET</span><span>Visual Studio Code</span><span>Workflow tracking</span></div>
+      </article>
+      <article class="card">
+        <h3>Sparc Foundation website</h3>
+        <p>Website for the Sparc Foundation, built with Next.js and Firebase/Firestore.</p>
+        <div class="tags"><span>Next.js</span><span>Firestore</span></div>
+      </article>
+      <article class="card">
+        <h3>Internet banking testing</h3>
+        <p>Handled functional testing of internet banking features and helped solve customer-facing issues.</p>
+        <div class="tags"><span>Functional testing</span><span>Customer issues</span></div>
+      </article>
+      <article class="card">
+        <h3>Mobile banking testing</h3>
+        <p>Tested the mobile banking application and suggested cooling-period features for smoother operation.</p>
+        <div class="tags"><span>App testing</span><span>Feature suggestions</span></div>
+      </article>
+      <article class="card">
+        <h3>Data logger</h3>
+        <p>A Python data logger application built at Kelfos Instruments.</p>
+        <div class="tags"><span>Python</span></div>
+      </article>
+      <article class="card wide">
+        <h3>Bank content &amp; digital channels</h3>
+        <p>Developed bank content to strengthen the bank's image with its customer base, and worked on resolving complaints raised through digital channels.</p>
+        <div class="tags"><span>Content</span><span>Digital channels</span><span>Complaint resolution</span></div>
+      </article>
+      <article class="card">
+        <h3>Annual Report</h3>
+        <p>Created the bank's Annual Report presentation and helped prepare the data for the printed copy.</p>
+        <div class="tags"><span>PowerPoint</span><span>Reporting</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lead">A full-stack base, banking domain knowledge, and a growing DevOps and AI toolkit.</p>
+    <div class="skills">
+      <div class="sk"><h3>Languages</h3><div class="tags"><span>JavaScript</span><span>Java</span><span>Dart</span><span>Python</span><span>HTML5</span><span>CSS3</span></div></div>
+      <div class="sk"><h3>Frameworks</h3><div class="tags"><span>React.js</span><span>Next.js</span><span>Flutter</span><span>Spring Boot</span><span>REST APIs</span><span>Material UI</span></div></div>
+      <div class="sk"><h3>Data</h3><div class="tags"><span>SQL</span><span>MS Access</span><span>Firestore</span></div></div>
+      <div class="sk"><h3>Testing &amp; support</h3><div class="tags"><span>Functional testing</span><span>Transaction validation</span><span>Defect tracking</span><span>Troubleshooting</span><span>Data verification</span></div></div>
+      <div class="sk"><h3>Banking domain</h3><div class="tags"><span>Net Banking</span><span>Mobile Banking</span><span>IMPS</span><span>UPI</span><span>CTS clearing</span><span>RBI DAKSH</span></div></div>
+      <div class="sk"><h3>Cloud &amp; DevOps (learning)</h3><div class="tags"><span>AWS fundamentals</span><span>Git</span><span>GitLab</span><span>CI/CD</span></div></div>
+      <div class="sk"><h3>AI tools</h3><div class="tags"><span>Microsoft Copilot</span><span>Claude</span><span>Google Gemini</span><span>NotebookLM</span></div></div>
+      <div class="sk"><h3>Design &amp; content</h3><div class="tags"><span>Canva</span><span>Photoshop</span><span>PowerPoint</span><span>Podcast production</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="podcast" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="pod">
+      <div>
+        <h2>GoalGappa Podcast</h2>
+        <p>I co-founded and host GoalGappa, a Marathi-language podcast built around knowledge-sharing and meaningful conversations with experts, entrepreneurs and professionals.</p>
+        <div class="rec">Recognised by Asia Book of Records and India Book of Records for the longest live Marathi podcast on Chhatrapati Shivaji Maharaj.</div>
+        <p>I handle episode planning, guest outreach, interview preparation, recording, promotion and the creatives around each episode, using Canva and AI assistants for research and copywriting.</p>
+        <div class="cta"><a class="btn p" href="https://www.youtube.com/@goalgappapodcast" target="_blank" rel="noopener">Watch on YouTube</a></div>
+      </div>
+      <ul>
+        <li><b>7,700+ subscribers, 438,227+ views</b>A growing and engaged YouTube audience built through content creation and podcasting.</li>
+        <li><b>Topics</b>History, Shivaji Maharaj and Swarajya, business, finance, healthcare, personal growth.</li>
+        <li><b>Network</b>Guests across business, healthcare, education and creative communities.</li>
+        <li><b>Skills it built</b>Storytelling, branding, audience growth, partnerships.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="wrap">
+    <h2>How I can contribute</h2>
+    <p class="lead">Where my mix of development, banking, AI and content experience can help a team.</p>
+    <div class="grid two">
+      <article class="card"><h3>Software &amp; digital transformation</h3><p>Build and maintain web apps, mobile apps, internal dashboards and business tools. Digitize manual workflows and support API integration, testing and troubleshooting.</p></article>
+      <article class="card"><h3>AI adoption &amp; automation</h3><p>Use AI tools for research, documentation, coding and presentations. Spot repetitive work and build reusable templates and documentation.</p></article>
+      <article class="card"><h3>DevOps &amp; technical growth</h3><p>Apply growing knowledge of cloud fundamentals, Git and CI/CD to improve delivery workflows, with appropriate technical guidance.</p></article>
+      <article class="card"><h3>Content &amp; brand building</h3><p>Develop content ideas and creatives for products and services, support videos, interviews and podcasts, and explain technical products in plain language.</p></article>
+      <article class="card"><h3>Digital marketing &amp; audience</h3><p>Help with content calendars, campaigns, brand creatives and channel management, and find the right audiences and communities.</p></article>
+      <article class="card"><h3>Networking &amp; partnerships</h3><p>Use guest outreach experience to build relationships with partners, customers and creators, and help prepare presentations and proposals.</p></article>
+      <article class="card"><h3>Reporting &amp; management support</h3><p>Prepare PowerPoint presentations, structured reports and performance summaries that support management decisions.</p></article>
+      <article class="card"><h3>Business growth &amp; operations</h3><p>Understand business challenges and suggest technology-based fixes that save time, reduce avoidable costs and improve customer experience.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's build something useful.</h2>
+    <p class="lead">I am interested in roles where software development, banking technology, AI tools and digital media come together to improve operations and strengthen a brand.</p>
+    <div class="cl">
+      <a class="btn p" href="https://linkedin.com/in/pranavkeepway" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:goalgappapodcast@gmail.com">Email me</a>
+      <a class="btn" href="https://www.youtube.com/@goalgappapodcast" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr"></span> Pranav Kulkarni · Pune, Maharashtra</span><span class="mono">Hosted on GitHub Pages</span></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,key="theme";
+  try{var s=localStorage.getItem(key);if(s)root.dataset.theme=s;else if(matchMedia("(prefers-color-scheme: light)").matches)root.dataset.theme="light"}catch(e){}
+  document.getElementById("theme").addEventListener("click",function(){
+    var t=root.dataset.theme==="dark"?"light":"dark";root.dataset.theme=t;
+    try{localStorage.setItem(key,t)}catch(e){}
+  });
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  var hero=document.querySelector(".hero");
+  hero.addEventListener("pointermove",function(e){
+    var r=hero.getBoundingClientRect();
+    hero.style.setProperty("--mx",(e.clientX-r.left)+"px");
+    hero.style.setProperty("--my",(e.clientY-r.top)+"px");
+  });
+
+  var lines=[
+    '<span class="c">// profile.js</span>',
+    '<span class="k">const</span> pranav = {',
+    '  role: <span class="s">"Software Developer"</span>,',
+    '  base: <span class="s">"Pune, India"</span>,',
+    '  experience: <span class="n">3</span>, <span class="c">// years, and counting</span>',
+    '  stack: [<span class="s">"React"</span>, <span class="s">"Next.js"</span>, <span class="s">"Flutter"</span>,',
+    '          <span class="s">"Python"</span>, <span class="s">"SQL"</span>],',
+    '  domain: [<span class="s">"Banking"</span>, <span class="s">"AI tools"</span>],',
+    '  learning: <span class="s">"DevOps + CI/CD"</span>,',
+    '  podcast: <span class="s">"GoalGappa"</span>,',
+    '};',
+    '',
+    '<span class="k">export default</span> pranav;<span class="caret"></span>'
+  ];
+  var tb=document.getElementById("tb");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){tb.innerHTML=lines.join("\n");return}
+  var i=0;
+  (function next(){
+    if(i>=lines.length)return;
+    tb.innerHTML=lines.slice(0,++i).join("\n");
+    setTimeout(next,i===1?500:260);
+  })();
+})();
+</script>
+</body>
+</html>
